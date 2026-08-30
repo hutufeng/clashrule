@@ -31,18 +31,17 @@
 ```
 clashrule/
 ├── config.yaml                    # 分组与规则源配置文件（用户维护）
-├── merge.py                       # 核心合并与生成脚本
-├── requirements.txt               # Python 依赖
+├── merge.py                       # 核心合并与生成脚本（原生标准库，零外部依赖）
+├── requirements.txt               # Python 依赖说明（可选）
 ├── .github/
 │   └── workflows/
 │       └── merge-rules.yml        # GitHub Actions 定时/推送工作流
 ├── rules/                         # 生成的规则文件目录（由 Actions 自动生成并提交）
-│   ├── Reject.yaml
-│   ├── Streaming.yaml
-│   └── Proxy.yaml
+│   ├── Lan.yaml
+│   ├── Proxy.yaml
+│   └── DIRECT.yaml
 ├── clash_config_snippet.yaml      # 自动生成的 Clash 配置片段（直接复制使用）
 ├── SYNC_LOG.md                    # 运行日志（记录每次运行状态、规则源抓取明细与历史）
-├── run_merge.ps1                  # 本地 PowerShell 一键测试脚本
 └── README.md                      # 项目说明文档
 ```
 
@@ -108,19 +107,11 @@ groups:
 
 ```yaml
 rule-providers:
-  Reject:
+  Lan:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/hutufeng/clashrule/main/rules/Reject.yaml"
-    path: ./ruleset/Reject.yaml
-    interval: 604800
-    format: yaml
-
-  Streaming:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/hutufeng/clashrule/main/rules/Streaming.yaml"
-    path: ./ruleset/Streaming.yaml
+    url: "https://raw.githubusercontent.com/hutufeng/clashrule/main/rules/Lan.yaml"
+    path: ./ruleset/Lan.yaml
     interval: 604800
     format: yaml
 
@@ -132,11 +123,19 @@ rule-providers:
     interval: 604800
     format: yaml
 
+  DIRECT:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/hutufeng/clashrule/main/rules/DIRECT.yaml"
+    path: ./ruleset/DIRECT.yaml
+    interval: 604800
+    format: yaml
+
 rules:
-  - RULE-SET,Reject,REJECT
-  - RULE-SET,Streaming,Streaming
+  - RULE-SET,Lan,DIRECT
   - RULE-SET,Proxy,Proxy
-  - MATCH,DIRECT
+  - RULE-SET,DIRECT,DIRECT
+  - MATCH,Proxy
 ```
 
 ### 方式二：CDN 加速（国内网络优化）
