@@ -1,0 +1,66 @@
+# ==============================================================================
+# Clash / mihomo 规则合并配置
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 仓库信息（可选）- 用于生成 rule-providers 中的 URL
+# 默认会自动从 Git / GitHub Actions 环境获取：
+#   - GitHub Actions 运行: 自动读取 $GITHUB_REPOSITORY 与 $GITHUB_REF_NAME
+#   - 本地运行: 自动解析 git remote get-url origin
+# 如果需要使用自定义 CDN 加速域名（如 jsDelivr / Fastly / Ghproxy 等）或手动覆盖，请取消注释并配置：
+# ------------------------------------------------------------------------------
+# repo:
+#   user: hutufeng
+#   name: clashrule
+#   branch: main
+#   # 可选：自定义 raw 前缀，如果不写默认为 https://raw.githubusercontent.com/{user}/{name}/{branch}
+#   # raw_url_prefix: "https://fastly.jsdelivr.net/gh/hutufeng/clashrule@main"
+
+# ------------------------------------------------------------------------------
+# 全局设置
+# ------------------------------------------------------------------------------
+# rule-providers 的更新间隔（秒），默认 604800（7天）
+interval: 604800
+
+# rules 列表中最后的兜底匹配规则
+final_rule: "MATCH,Proxy"
+
+# ------------------------------------------------------------------------------
+# 规则分组配置 (groups)
+# 每个分组会在 rules/ 目录下生成一个同名 yaml 文件，例如 rules/Reject.yaml
+#
+# 配置说明:
+#   policy:   Clash rules 中对应的策略组或动作（如 REJECT / DIRECT / Proxy / 节点选择 等）
+#   priority: 优先级权重，生成 clash_config_snippet.yaml 时按数字从小到大排序
+#   sources:  规则源 raw URL 列表，支持从 blackmatrix7 仓库或任意标准 Clash 规则源下载
+# ------------------------------------------------------------------------------
+groups:
+  Lan:
+    policy: REJECT
+    priority: 1
+    sources:
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
+
+  Proxy:
+    policy: Proxy
+    priority: 2
+    sources:
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Anthropic/Anthropic.yaml
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.yaml
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GoogleFCM/GoogleFCM.yaml
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bing/Bing.yaml
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Cloudflare/Cloudflare.yaml
+  DIRECT:
+    policy: DIRECT
+    priority: 3
+    sources:
+      - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml

@@ -1,0 +1,37 @@
+# ==============================================================================
+# Clash / mihomo 配置片段 (自动生成)
+# 更新时间: 2026-08-30 01:49:11 UTC
+# 仓库地址: https://raw.githubusercontent.com/hutufeng/clashrule/main
+# 使用方法: 将下方内容复制并合并至您的 Clash 配置文件对应段落
+# ==============================================================================
+
+rule-providers:
+  Lan:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/hutufeng/clashrule/main/rules/Lan.yaml"
+    path: ./ruleset/Lan.yaml
+    interval: 604800
+    format: yaml
+
+  Proxy:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/hutufeng/clashrule/main/rules/Proxy.yaml"
+    path: ./ruleset/Proxy.yaml
+    interval: 604800
+    format: yaml
+
+  DIRECT:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/hutufeng/clashrule/main/rules/DIRECT.yaml"
+    path: ./ruleset/DIRECT.yaml
+    interval: 604800
+    format: yaml
+
+rules:
+  - RULE-SET,Lan,REJECT
+  - RULE-SET,Proxy,Proxy
+  - RULE-SET,DIRECT,DIRECT
+  - MATCH,Proxy

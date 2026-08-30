@@ -1,0 +1,65 @@
+name: Auto Merge Clash Rules
+
+on:
+  schedule:
+    # 每天 UTC 20:00 (北京时间凌晨 04:00) 自动定时运行
+    - cron: '0 20 * * *'
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'config.yaml'
+      - 'merge.py'
+      - 'requirements.txt'
+      - '.github/workflows/merge-rules.yml'
+  workflow_dispatch: # 支持在 GitHub 网页上手动触发运行
+
+# 必须赋予写权限，以便自动提交生成的规则文件
+permissions:
+  contents: write
+
+jobs:
+  build-and-sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Merge Script
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+        run: |
+          python merge.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # 添加生成的文件与运行日志
+          git add rules/ clash_config_snippet.yaml SYNC_LOG.md
+          
+          # 检查是否有变更
+          if git diff --staged --quiet; then
+            echo "没有检测到规则更新，无需提交。"
+          else
+            echo "检测到规则更新，正在提交..."
+            git commit -m "chore(rules): auto update clash rules [skip ci]"
+            git push origin ${{ github.ref_name }}
+          fi
