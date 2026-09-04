@@ -1,6 +1,6 @@
 # ==============================================================================
 # Clash / mihomo 配置片段 (自动生成)
-# 更新时间: 2026-09-04 01:58:17 UTC
+# 更新时间: 2026-09-04 02:06:17 UTC
 # 仓库地址: https://raw.githubusercontent.com/hutufeng/clashrule/main
 # 使用方法: 将下方内容复制并合并至您的 Clash 配置文件对应段落
 # ==============================================================================
@@ -11,14 +11,6 @@ rule-providers:
     behavior: classical
     url: "https://raw.githubusercontent.com/hutufeng/clashrule/main/rules/Lan.yaml"
     path: ./ruleset/Lan.yaml
-    interval: 604800
-    format: yaml
-
-  REJECT:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/hutufeng/clashrule/main/rules/REJECT.yaml"
-    path: ./ruleset/REJECT.yaml
     interval: 604800
     format: yaml
 
@@ -40,7 +32,6 @@ rule-providers:
 
 rules:
   - RULE-SET,Lan,DIRECT
-  - RULE-SET,REJECT,REJECT
   - RULE-SET,Proxy,Proxy
   - RULE-SET,DIRECT,DIRECT
   - MATCH,Proxy
