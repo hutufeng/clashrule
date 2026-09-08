@@ -1,8 +1,8 @@
 # 📋 Clash / mihomo 规则自动合并运行日志
 
-> **最后运行时间**：`2026-09-08 06:25:02 (北京时间)` / `2026-09-07 22:25:02 UTC`  
+> **最后运行时间**：`2026-09-08 08:41:47 (北京时间)` / `2026-09-08 00:41:47 UTC`  
 > **运行状态**：🟢 运行成功 (全部正常)  
-> **总体概况**：处理分组 `3` 个，规则源 `17` 个（成功 `17` / 失败 `0`），合并后总规则数 `125806` 条
+> **总体概况**：处理分组 `3` 个，规则源 `16` 个（成功 `16` / 失败 `0`），合并后总规则数 `125782` 条
 
 **状态说明**：✅ 所有规则源均已成功获取并合并
 
@@ -13,7 +13,7 @@
 | 分组名称 | 代理策略 (Policy) | 优先级 | 规则源总数 | 成功 | 失败 | 生成规则数 | 状态 |
 |:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|
 | `Lan` | `DIRECT` | `1` | 1 | 1 | 0 | **140** | ✅ 正常 |
-| `Proxy` | `Proxy` | `2` | 15 | 15 | 0 | **1862** | ✅ 正常 |
+| `Proxy` | `Proxy` | `2` | 14 | 14 | 0 | **1838** | ✅ 正常 |
 | `DIRECT` | `DIRECT` | `3` | 1 | 1 | 0 | **123804** | ✅ 正常 |
 
 ### 🔗 各规则源抓取详情
@@ -28,7 +28,7 @@
 </details>
 
 <details>
-<summary><b>📂 Proxy 分组规则源详情 (共 15 个源)</b></summary>
+<summary><b>📂 Proxy 分组规则源详情 (共 14 个源)</b></summary>
 
 | 规则源名称 | 抓取状态 | 解析条数 | 去重后新增 | 规则源链接 | 备注 |
 |:---|:---:|:---:|:---:|:---|:---|
@@ -46,7 +46,6 @@
 | `Microsoft` | ✅ 成功 | 670 | 661 | [链接](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml) | - |
 | `Google` | ✅ 成功 | 701 | 697 | [链接](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml) | - |
 | `Cloudflare` | ✅ 成功 | 65 | 65 | [链接](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Cloudflare/Cloudflare.yaml) | - |
-| `Line` | ✅ 成功 | 24 | 24 | [链接](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Line/Line.yaml) | - |
 
 </details>
 
@@ -66,6 +65,7 @@
 | 执行时间 (北京时间) | 处理分组数 | 总规则数 | 规则源总数 | 失败源数 | 整体状态 |
 |:---|:---:|:---:|:---:|:---:|:---:|
 <!-- HISTORY_START -->
+| 2026-09-08 08:41:47 (北京时间) | 3 | 125782 | 16 | 0 | ✅ 成功 |
 | 2026-09-08 06:25:02 (北京时间) | 3 | 125806 | 17 | 0 | ✅ 成功 |
 | 2026-09-07 21:46:35 (北京时间) | 3 | 125789 | 17 | 0 | ✅ 成功 |
 | 2026-09-07 05:52:03 (北京时间) | 3 | 125765 | 16 | 0 | ✅ 成功 |
