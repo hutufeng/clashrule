@@ -1,14 +1,14 @@
 # NAME: DIRECT
-# UPDATED: 2026-09-08 22:13:08 UTC
+# UPDATED: 2026-09-09 22:08:02 UTC
 # SOURCES: ChinaMax_Classical
 # DOMAIN: 268
-# DOMAIN-SUFFIX: 111051
+# DOMAIN-SUFFIX: 111052
 # DOMAIN-KEYWORD: 13
 # IP-CIDR: 8245
 # IP-CIDR6: 4212
 # IP-ASN: 1
 # PROCESS-NAME: 14
-# TOTAL: 123804
+# TOTAL: 123805
 payload:
   - DOMAIN,1-fss24-s0.streamhoster.com
   - DOMAIN,14033.live.streamtheworld.com
@@ -105188,6 +105188,7 @@ payload:
   - DOMAIN-SUFFIX,yuanpanguoji.com
   - DOMAIN-SUFFIX,yuanqiao.net
   - DOMAIN-SUFFIX,yuanqiao.pw
+  - DOMAIN-SUFFIX,yuanqidesk.com
   - DOMAIN-SUFFIX,yuanqilt.com
   - DOMAIN-SUFFIX,yuanqingsh.com
   - DOMAIN-SUFFIX,yuanqisenlin.com
