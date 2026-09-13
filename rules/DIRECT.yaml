@@ -1,14 +1,14 @@
 # NAME: DIRECT
-# UPDATED: 2026-09-12 21:51:47 UTC
+# UPDATED: 2026-09-13 21:58:27 UTC
 # SOURCES: ChinaMax_Classical
 # DOMAIN: 268
-# DOMAIN-SUFFIX: 111052
+# DOMAIN-SUFFIX: 111051
 # DOMAIN-KEYWORD: 13
-# IP-CIDR: 8245
+# IP-CIDR: 8247
 # IP-CIDR6: 4222
 # IP-ASN: 1
 # PROCESS-NAME: 14
-# TOTAL: 123815
+# TOTAL: 123816
 payload:
   - DOMAIN,1-fss24-s0.streamhoster.com
   - DOMAIN,14033.live.streamtheworld.com
@@ -84062,7 +84062,6 @@ payload:
   - DOMAIN-SUFFIX,spsicloudport.com
   - DOMAIN-SUFFIX,spsisctgroup.com
   - DOMAIN-SUFFIX,spsisncl.com
-  - DOMAIN-SUFFIX,spst2.com
   - DOMAIN-SUFFIX,spsy.org
   - DOMAIN-SUFFIX,sptcc.com
   - DOMAIN-SUFFIX,sptccn.com
@@ -114855,6 +114854,7 @@ payload:
   - IP-CIDR,143.191.188.0/22
   - IP-CIDR,143.191.64.0/19
   - IP-CIDR,143.191.96.0/21
+  - IP-CIDR,143.20.70.0/23
   - IP-CIDR,143.64.0.0/16
   - IP-CIDR,144.0.0.0/16
   - IP-CIDR,144.12.0.0/16
@@ -119563,6 +119563,7 @@ payload:
   - IP-CIDR,81.68.0.0/14
   - IP-CIDR,82.156.0.0/15
   - IP-CIDR,82.38.46.0/23
+  - IP-CIDR,82.38.80.0/23
   - IP-CIDR,85.12.7.192/28
   - IP-CIDR,85.184.245.0/24
   - IP-CIDR,85.209.40.0/22
